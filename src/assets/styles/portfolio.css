@@ -1,0 +1,638 @@
+/**
+* @license
+*
+* Font Family: Gambarino
+* Designed by: Théo Guillard
+* URL: https://www.fontshare.com/fonts/gambarino
+* © 2025 Indian Type Foundry
+*
+* Gambarino Regular 
+
+*
+*/
+@font-face {
+  font-family: 'Gambarino';
+  src: url('/src/assets/font/Gambarino-Regular.woff2') format('woff2'),
+       url('../font/Gambarino-Regular.woff') format('woff'),
+       url('../font/Gambarino-Regular.ttf') format('truetype');
+
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/**
+* @license
+*
+* Font Family: Boska
+* Designed by: Barbara Bigosinska
+* URL: https://www.fontshare.com/fonts/boska
+* © 2025 Indian Type Foundry
+*
+* Boska Extralight 
+* Boska ExtralightItalic 
+* Boska Light 
+* Boska LightItalic 
+* Boska Regular 
+* Boska Italic 
+* Boska Medium 
+* Boska MediumItalic 
+* Boska Bold 
+* Boska BoldItalic 
+* Boska Black 
+* Boska BlackItalic 
+* Boska Variable (Variable font)
+* Boska VariableItalic (Variable font)
+
+*
+*/
+@font-face {
+  font-family: 'Boska-Extralight';
+  src: url('/src/assets/font/Boska-Extralight.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Extralight.woff') format('woff'),
+       url('/src/assets/font/Boska-Extralight.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-ExtralightItalic';
+  src: url('/src/assets/font/Boska-ExtralightItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-ExtralightItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-ExtralightItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Light';
+  src: url('/src/assets/font/Boska-Light.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Light.woff') format('woff'),
+       url('/src/assets/font/Boska-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-LightItalic';
+  src: url('/src/assets/font/Boska-LightItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-LightItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Regular';
+  src: url('/src/assets/font/Boska-Regular.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Regular.woff') format('woff'),
+       url('/src/assets/font/Boska-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-Italic';
+  src: url('/src/assets/font/Boska-Italic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Italic.woff') format('woff'),
+       url('/src/assets/font/Boska-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Medium';
+  src: url('/src/assets/font/Boska-Medium.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Medium.woff') format('woff'),
+       url('/src/assets/font/Boska-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-MediumItalic';
+  src: url('/src/assets/font/Boska-MediumItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-MediumItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-MediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Bold';
+  src: url('/src/assets/font/Boska-Bold.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Bold.woff') format('woff'),
+       url('/src/assets/font/Boska-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-BoldItalic';
+  src: url('/src/assets/font/Boska-BoldItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-BoldItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+  font-style: italic;
+}
+@font-face {
+  font-family: 'Boska-Black';
+  src: url('/src/assets/font/Boska-Black.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Black.woff') format('woff'),
+       url('/src/assets/font/Boska-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Boska-BlackItalic';
+  src: url('/src/assets/font/Boska-BlackItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-BlackItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-display: swap;
+  font-style: italic;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: 'Boska-Variable';
+  src: url('/src/assets/font/Boska-Variable.woff2') format('woff2'),
+       url('/src/assets/font/Boska-Variable.woff') format('woff'),
+       url('/src/assets/font/Boska-Variable.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: normal;
+}
+/**
+* This is a variable font
+* You can control variable axes as shown below:
+* font-variation-settings: wght 200.0;
+*
+* available axes:
+'wght' (range from 200.0 to 900.0
+*/
+@font-face {
+  font-family: 'Boska-VariableItalic';
+  src: url('/src/assets/font/Boska-VariableItalic.woff2') format('woff2'),
+       url('/src/assets/font/Boska-VariableItalic.woff') format('woff'),
+       url('/src/assets/font/Boska-VariableItalic.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+  font-style: italic;
+}
+
+
+
+/* === RESET GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  color: #fff;
+  font-family: "Inter", system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* === VIDEO WALL + OVERLAY === */
+.video-wall {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-wall video {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+/* overlay texte showreel */
+.video-overlay {
+  position: absolute;
+  bottom: 10%;           /* texte vers le bas */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  isolation: isolate;    /* nécessaire pour mix-blend-mode */
+  padding: 0;            /* aucun padding */
+  background: none;      /* pas de cadre */
+  opacity: 0;             /* pour fade-in */
+  animation: fadeInOverlay 1.2s ease forwards 0.5s;
+}
+
+/* animation fade-in */
+@keyframes fadeInOverlay {
+  to { opacity: 1; }
+}
+
+/* texte showreel */
+.video-overlay h1 ,
+.video-overlay p {
+  font-family: "Boska-Light"; /* typo correcte */
+  color: #fff;
+  margin: 0;
+  mix-blend-mode: normal; /* tu peux tester exclusion si ton navigateur le supporte */
+  transition: color 0.2s ease;
+}
+
+/* tailles */
+.video-overlay h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+.video-overlay p {
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-top: 0.3rem;
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .video-overlay h1 { font-size: 2rem; }
+  .video-overlay p { font-size: 1rem; }
+}
+
+/* === FONT FACE === */
+@font-face {
+  font-family: 'Gambarino';
+  src: url('../font/Gambarino-Regular.woff2') format('woff2'),
+       url('../font/Gambarino-Regular.woff') format('woff'),
+       url('../font/Gambarino-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+/* === BANNIÈRE DÉFILANTE === */
+.banner {
+  width: 100%;
+  background: #000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  height: 60px; /* fine bande */
+  display: flex;
+  align-items: center;
+}
+
+.banner-track {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scrollBanner 25s linear infinite;
+}
+
+.banner p {
+  font-family: "Inter", system-ui, sans-serif;
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  display: inline-block;
+  padding-left: 100%;
+}
+
+@keyframes scrollBanner {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    height: 40px;
+  }
+  .banner p {
+    font-size: 1rem;
+  }
+}
+
+
+.overlay-logo {
+  width: 20px; /* ajuste selon la taille souhaitée */
+  height: auto;
+  margin-bottom: 1rem;
+  filter: invert(1); /* si ton logo est noir, ça le rendra blanc */
+  opacity: 0.9;
+}
+
+
+/* === SECTION PROJETS === */
+.projects {
+  width: 100%;
+  background: #000;
+  padding: 0rem 0; /* réduit drastiquement l’espace */
+  margin-top: 0; 
+}
+
+.projects h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 500;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+/* === GRILLE DE MINIATURES === */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 0rem;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+/* === MINIATURE (chaque projet Behance) === */
+.grid-item {
+  position: relative;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 0px;
+  background: #111;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grid-item:hover {
+  transform: none;
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+/* === IMAGE === */
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.grid-item img:hover {
+  transform: scale(1.05);
+}
+
+/* === FOOTER DU PROJET === */
+.project_footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+}
+
+.grid-item:hover .project_footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TEXTE & ARROW === */
+.arrow_project {
+  display: flex;
+  align-items: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  gap: 6px;
+  margin-bottom: 0.4rem;
+}
+
+.project_footer h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.fields_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fields_container .fields {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .projects {
+    padding: 4rem 0 2rem 0;
+  }
+
+  .projects h2 {
+    font-size: 1.6rem;
+  }
+
+  .grid {
+    width: 90vw;
+    gap: 1.5rem;
+  }
+
+  .grid-item {
+    border-radius: 8px;
+  }
+
+  .project_footer {
+    padding: 0.8rem;
+  }
+}
+/* === PROJECT PAGE === */
+/* === PROJECT PAGE (Local Render) === */
+.project-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.project-header {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.project-content {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.project-cover {
+  width: 100%;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 0 20px #0005;
+}
+
+.project-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  opacity: 0.8;
+  text-align: center;
+  max-width: 800px;
+}
+
+.view-on-behance {
+  color: #fff;
+  border: 1px solid #fff3;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: 0.2s;
+}
+
+.view-on-behance:hover {
+  background: #fff1;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid #fff3;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: #fff1;
+}
+
+/* === PROJECT MODULES === */
+.project-module-img,
+.project-module-text,
+.project-module-embed {
+  max-width: 1000px;
+  width: 100%;
+  margin: 1rem 0; /* espace réduit */
+}
+
+.project-module-img {
+   margin: -1rem 0; 
+    image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.project-module-text {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.95;
+  text-align: left;
+  max-width: 900px;
+}
+
+.project-module-embed {
+  display: flex;
+  justify-content: center;
+}
+
+.project-module-embed iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  border-radius: 0.25rem;
+}
+/* === IMAGE GRID MODULE === */
+.project-module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.project-grid-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+
+.project-grid-img:hover {
+  transform: scale(1.02);
+}
+/* --- Première ligne avec 2 projets --- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 0;
+  width: 100vw;
+  margin: 0 auto;
+}
+
+/* --- 2 premiers projets (même hauteur que les autres) --- */
+.grid-item:nth-child(1),
+.grid-item:nth-child(2) {
+  grid-column: span 2;
+  aspect-ratio: 5 / 2; /* même proportion que les autres */
+  overflow: hidden; /* coupe le débordement */
+}
+
+.grid-item:nth-child(1) img,
+.grid-item:nth-child(2) img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* crop sans déformation */
+  object-position: center; /* centré verticalement */
+}
+
+/* --- Responsive : retour à normal sur tablette/mobile --- */
+@media (max-width: 1024px) {
+  .grid-item:nth-child(1),
+  .grid-item:nth-child(2) {
+    grid-column: span 1;
+    aspect-ratio: 5 / 4;
+  }
+}
+
+

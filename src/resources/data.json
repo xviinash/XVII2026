@@ -1,0 +1,121 @@
+{
+  "parcours": [
+    {
+      "diplome": "Master degree course in digital creation",
+      "mention": "École Estienne, Paris (75)",
+      "annees": {
+        "debut": 2023,
+        "fin": 2025
+      }
+    },
+    {
+      "diplome": "Bachelor’s degree in Graphic Design",
+      "mention": "ésaat, Roubaix (59)",
+      "annees": {
+        "debut": 2020,
+        "fin": 2023
+      }
+    },
+    {
+      "diplome": "High School diploma",
+      "mention": "Sciences and technologies of design and applied arts, Saint-Omer (62)",
+      "annees": {
+        "debut": 2017,
+        "fin": 2020
+      }
+    }
+  ],
+  "informations": [
+    "Hello, my name is Philippe Chevalier, also known as XVIINASH. I’m a multidisciplinary digital designer, and I strive to bring all my skills into various projects, whether in graphic design, art direction, illustration, UI/UX design, web design, 3D modeling, or video editing.",
+    "I fell in love with digital creation as soon as I got my first computer. Since I was a child, I've been constantly learning and creating through a screen, and I'd like to broaden my creative horizon by using other media such as virtual reality, augmented reality, or mixed reality.",
+    "Outside of my studies, I own a YouTube channel where I create music videos as a tribute to different artists around the globe. This activity allows me to express 100% of my creativity and to carry out projects from A to Z, from storyboarding to post-production. I don't use any external assets to maintain the authenticity of my work.",
+    "I always strive to work efficiently and productively to optimize my time."
+  ],
+  "contact": [
+    {
+      "icon": "/assets/icons/contact/mail.svg",
+      "name": "hello@xviinash.com",
+      "lien": "mailto:hello@xviinash.com"
+    }
+  ],
+  "presentation": {
+    "photo": "/assets/images/portrait.png",
+    "nom": "Chevalier",
+    "prenom": "Philippe",
+    "activite": "Digital Designer based in Paris",
+    "resaux": [
+      {
+        "icon": "/assets/icons/contact/svg_behance.svg",
+        "name": "behance",
+        "lien": "https://www.behance.net/xviinash"
+      },
+      {
+        "icon": "/assets/icons/contact/svg_insta.svg",
+        "name": "instagram",
+        "lien": "https://www.instagram.com/xviinash/"
+      },
+      {
+        "icon": "/assets/icons/contact/svg_youtube.svg",
+        "name": "youtube",
+        "lien": "https://www.youtube.com/@xviinash/"
+      },
+      {
+        "icon": "/assets/icons/contact/svg_tiktok.svg",
+        "name": "tiktok",
+        "lien": "https://www.tiktok.com/@xviinash/"
+      },
+      {
+        "icon": "/assets/icons/contact/svg_patreon.svg",
+        "name": "patreon",
+        "lien": "https://www.patreon.com/xviinash/"
+      },
+      {
+        "icon": "/assets/icons/contact/svg_twitch.svg",
+        "name": "twitch",
+        "lien": "https://www.twitch.tv/xviinash/"
+      }
+    ]
+  },
+  "logiciel": [
+    {
+      "icon": "/assets/icons/logiciel/photoshop.svg",
+      "name": "Photoshop",
+      "lien": "https://www.adobe.com/fr/products/photoshop.html"
+    },
+    {
+      "icon": "/assets/icons/logiciel/adobeIllustrator.svg",
+      "name": "Illustrator",
+      "lien": "https://www.adobe.com/fr/products/illustrator.html"
+    },
+    {
+      "icon": "/assets/icons/logiciel/blender.svg",
+      "name": "Blender",
+      "lien": "https://www.blender.org/"
+    },
+    {
+      "icon": "/assets/icons/logiciel/afterEffect.svg",
+      "name": "After effect",
+      "lien": "https://www.adobe.com/fr/products/aftereffects.html"
+    },
+    {
+      "icon": "/assets/icons/logiciel/adobeXd.svg",
+      "name": "Adobe XD",
+      "lien": "https://helpx.adobe.com/fr/xd/get-started.html"
+    },
+    {
+      "icon": "/assets/icons/logiciel/figma.svg",
+      "name": "Figma",
+      "lien": "https://www.figma.com/fr/"
+    },
+    {
+      "icon": "/assets/icons/logiciel/premierePro.svg",
+      "name": "Première Pro",
+      "lien": "https://www.adobe.com/fr/products/premiere.html"
+    },
+    {
+      "icon": "/assets/icons/logiciel/adobeIdesing.svg",
+      "name": "Adobe Id",
+      "lien": "https://www.adobe.com/fr/products/indesign.html"
+    }
+  ]
+}
