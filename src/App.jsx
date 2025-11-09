@@ -10,13 +10,11 @@ const App = () => {
   const [projects, setProjects] = useState([]);
 const jobs = [
   "ART DIRECTOR",
+  "BRAND DESIGNER",
   "3D GENERALIST",
   "MOTION DESIGNER",
   "ILLUSTRATOR",
   "UI/UX DESIGNER",
-  "CREATIVE DEVELOPER",
-  "VISUAL ARTIST",
-  "DIGITAL DESIGNER"
 ];
   useEffect(() => {
     const behance = new Behance();
