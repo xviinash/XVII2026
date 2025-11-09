@@ -1,196 +1,23 @@
-/**
-* @license
-*
-* Font Family: Gambarino
-* Designed by: Théo Guillard
-* URL: https://www.fontshare.com/fonts/gambarino
-* © 2025 Indian Type Foundry
-*
-* Gambarino Regular 
-
-*
-*/
-@font-face {
-  font-family: 'Gambarino';
-  src: url('/src/assets/font/Gambarino-Regular.woff2') format('woff2'),
-       url('../font/Gambarino-Regular.woff') format('woff'),
-       url('../font/Gambarino-Regular.ttf') format('truetype');
-
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+:root {
+  --font-display: "Inter", sans-serif;
 }
 
-/**
-* @license
-*
-* Font Family: Boska
-* Designed by: Barbara Bigosinska
-* URL: https://www.fontshare.com/fonts/boska
-* © 2025 Indian Type Foundry
-*
-* Boska Extralight 
-* Boska ExtralightItalic 
-* Boska Light 
-* Boska LightItalic 
-* Boska Regular 
-* Boska Italic 
-* Boska Medium 
-* Boska MediumItalic 
-* Boska Bold 
-* Boska BoldItalic 
-* Boska Black 
-* Boska BlackItalic 
-* Boska Variable (Variable font)
-* Boska VariableItalic (Variable font)
+body {
+  font-family: var(--font-display);
+  font-variation-settings: "wght" 400, "opsz" 14;
+  color: white;
+  background: black;
+}
 
-*
-*/
-@font-face {
-  font-family: 'Boska-Extralight';
-  src: url('/src/assets/font/Boska-Extralight.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Extralight.woff') format('woff'),
-       url('/src/assets/font/Boska-Extralight.ttf') format('truetype');
+
+ultra-thin {
+  font-weight: 100;
+}
+
+.subtitle {
   font-weight: 200;
-  font-display: swap;
-  font-style: normal;
+  letter-spacing: 0.05em;
 }
-@font-face {
-  font-family: 'Boska-ExtralightItalic';
-  src: url('/src/assets/font/Boska-ExtralightItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-ExtralightItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-ExtralightItalic.ttf') format('truetype');
-  font-weight: 200;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Boska-Light';
-  src: url('/src/assets/font/Boska-Light.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Light.woff') format('woff'),
-       url('/src/assets/font/Boska-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska-LightItalic';
-  src: url('/src/assets/font/Boska-LightItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-LightItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Boska-Regular';
-  src: url('/src/assets/font/Boska-Regular.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Regular.woff') format('woff'),
-       url('/src/assets/font/Boska-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska-Italic';
-  src: url('/src/assets/font/Boska-Italic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Italic.woff') format('woff'),
-       url('/src/assets/font/Boska-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Boska-Medium';
-  src: url('/src/assets/font/Boska-Medium.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Medium.woff') format('woff'),
-       url('/src/assets/font/Boska-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska-MediumItalic';
-  src: url('/src/assets/font/Boska-MediumItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-MediumItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Boska-Bold';
-  src: url('/src/assets/font/Boska-Bold.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Bold.woff') format('woff'),
-       url('/src/assets/font/Boska-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska-BoldItalic';
-  src: url('/src/assets/font/Boska-BoldItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-BoldItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
-@font-face {
-  font-family: 'Boska-Black';
-  src: url('/src/assets/font/Boska-Black.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Black.woff') format('woff'),
-       url('/src/assets/font/Boska-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska-BlackItalic';
-  src: url('/src/assets/font/Boska-BlackItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-BlackItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: italic;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 200.0;
-*
-* available axes:
-'wght' (range from 200.0 to 900.0
-*/
-@font-face {
-  font-family: 'Boska-Variable';
-  src: url('/src/assets/font/Boska-Variable.woff2') format('woff2'),
-       url('/src/assets/font/Boska-Variable.woff') format('woff'),
-       url('/src/assets/font/Boska-Variable.ttf') format('truetype');
-  font-weight: 200 900;
-  font-display: swap;
-  font-style: normal;
-}
-/**
-* This is a variable font
-* You can control variable axes as shown below:
-* font-variation-settings: wght 200.0;
-*
-* available axes:
-'wght' (range from 200.0 to 900.0
-*/
-@font-face {
-  font-family: 'Boska-VariableItalic';
-  src: url('/src/assets/font/Boska-VariableItalic.woff2') format('woff2'),
-       url('/src/assets/font/Boska-VariableItalic.woff') format('woff'),
-       url('/src/assets/font/Boska-VariableItalic.ttf') format('truetype');
-  font-weight: 200 900;
-  font-display: swap;
-  font-style: italic;
-}
-
-
-
 /* === RESET GLOBAL === */
 * {
   margin: 0;
@@ -251,24 +78,98 @@ html, body {
 /* texte showreel */
 .video-overlay h1 ,
 .video-overlay p {
-  font-family: "Boska-Light"; /* typo correcte */
-  color: #fff;
+  display: inline-block;       /* fait que chaque élément prend seulement la largeur de son contenu */
+  text-align: center;          /* texte centré à l'intérieur */
   margin: 0;
-  mix-blend-mode: normal; /* tu peux tester exclusion si ton navigateur le supporte */
+  font-weight: 10;
+  color: #fff;
+  mix-blend-mode: normal;
   transition: color 0.2s ease;
 }
+h1 {
+  font-variation-settings: "wght" 600;
+}
+
 
 /* tailles */
 .video-overlay h1 {
-  font-size: 3.5rem;
-  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  font-variation-settings: "wght" 100;
+  font-stretch: 75%; /* ou 75% pour plus condensé */
   letter-spacing: 0.05em;
+  font-size: 3.5rem;
+   margin-bottom: 0.2rem; /* petit espace sous le logo */
 }
 
 .video-overlay p {
   font-size: 1.2rem;
   font-weight: 300;
   margin-top: 0.3rem;
+    font-variation-settings: "wght" 200;
+  letter-spacing: 0.03em;
+}
+.overlay-text {
+  display: inline-block;   /* largeur = contenu */
+  text-align: center;
+}
+.overlay-text h1,
+.overlay-text p {
+  display: block;
+  margin: 0;
+}
+
+
+
+/* === SOCIAL ICONS === */
+/* === SOCIAL ICONS STYLE LIQUID GLASS === */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem; /* espace entre les icônes */
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;        /* largeur du bouton */
+  height: 40px;       /* hauteur du bouton */
+  padding: 10px;      /* espace autour de l'icône */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 1.5rem;  /* icône plus visible à l'intérieur */
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffd700;
+}
+
+
+.video-overlay .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.0 rem;
+  margin-top: 1.5 rem;
+  z-index: 11;
+}
+
+.video-overlay .social-icons a {
+  font-size: 1.8rem;
+  color: #fff;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.video-overlay .social-icons a:hover {
+  transform: scale(1.15);
+  color: #ccc;
 }
 
 /* responsive */
@@ -289,34 +190,42 @@ html, body {
 }
 
 
-/* === BANNIÈRE DÉFILANTE === */
+/* === BANNIÈRE MÉTIERS === */
 .banner {
   width: 100%;
+  overflow: hidden;
   background: #000;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  height: 60px; /* fine bande */
+  height: 55px;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
+/* Conteneur du texte défilant */
 .banner-track {
+  display: inline-block;
   white-space: nowrap;
-  display: inline-block;
-  animation: scrollBanner 25s linear infinite;
+  animation: scrollBanner 35s linear infinite;
+  will-change: transform;
 }
 
+/* Texte de la bannière */
 .banner p {
-  font-family: "Inter", system-ui, sans-serif;
-  color: #fff;
-  font-size: 1.4rem;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
   display: inline-block;
-  padding-left: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  color: #fff;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding-right: 4rem; /* espace entre répétitions */
+  user-select: none;
+  -webkit-user-select: none;
+  text-transform: uppercase;
 }
 
+/* Animation fluide infinie */
 @keyframes scrollBanner {
   0% {
     transform: translateX(0);
@@ -326,14 +235,25 @@ html, body {
   }
 }
 
+/* Safari performance fix */
+@supports (-webkit-touch-callout: none) {
+  .banner-track {
+    animation: scrollBanner 35s linear infinite;
+  }
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .banner {
     height: 40px;
   }
   .banner p {
     font-size: 1rem;
+    padding-right: 2rem;
   }
 }
+
+
 
 
 .overlay-logo {
@@ -634,5 +554,61 @@ html, body {
     aspect-ratio: 5 / 4;
   }
 }
+.footer {
+  width: 100%;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* COLONNE GAUCHE - Réseaux */
+.footer-left {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.footer-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: all 0.25s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* CENTRE - Email */
+.footer-center .footer-email {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.footer-center .footer-email:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+/* DROITE - Crédit */
+.footer-right p {
+  opacity: 0.7;
+  margin: 0;
+}
+
 
 

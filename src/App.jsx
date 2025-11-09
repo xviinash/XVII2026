@@ -3,6 +3,7 @@ import { Behance } from "./resources/Behance";
 import PortefolioComponent from "./components/PortefolioComponent";
 import "./assets/styles/portfolio.css";
 import VideoWall from "./components/VideoWall.jsx"; // <-- ton composant
+import Footer from "./components/Footer.jsx"; // ✅ on importe le footer
 
 const App = () => {
   const [projects, setProjects] = useState([]);
@@ -27,8 +28,8 @@ const App = () => {
 <section className="banner">
   <div className="banner-track">
     <p>
-      Brand Designer • 3D Generalist • Motion Designer • Illustrator • UI Designer •
-      Brand Designer • 3D Generalist • Motion Designer • Illustrator • UI Designer •
+      Art Director • 3D Generalist • Motion Designer • Illustrator • UI/UX Designer •
+      Art Director • 3D Generalist • Motion Designer • Illustrator • UI/UX Designer •
     </p>
   </div>
 </section>
@@ -48,6 +49,8 @@ const App = () => {
     )}
   </div>
 </section>
+      {/* === SECTION FOOTER === */}
+      <Footer /> {/* ✅ ajout du footer ici */}
 
     </>
   );
