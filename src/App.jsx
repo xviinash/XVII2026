@@ -2,12 +2,22 @@ import React, { useEffect, useState } from "react";
 import { Behance } from "./resources/Behance";
 import PortefolioComponent from "./components/PortefolioComponent";
 import "./assets/styles/portfolio.css";
+import Banner from "./components/Banner.jsx"; // ✅ On importe la bannière
 import VideoWall from "./components/VideoWall.jsx"; // <-- ton composant
 import Footer from "./components/Footer.jsx"; // ✅ on importe le footer
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-
+const jobs = [
+  "ART DIRECTOR",
+  "3D GENERALIST",
+  "MOTION DESIGNER",
+  "ILLUSTRATOR",
+  "UI/UX DESIGNER",
+  "CREATIVE DEVELOPER",
+  "VISUAL ARTIST",
+  "DIGITAL DESIGNER"
+];
   useEffect(() => {
     const behance = new Behance();
     behance.getProjectsByUser().done((data) => {
@@ -24,15 +34,11 @@ const App = () => {
 
       {/* === SECTION PROJETS BEHANCE === */}
 {/* === SECTION BANNIÈRE === */}
-
-<section className="banner">
-  <div className="banner-track">
-    <p>
-      Art Director • 3D Generalist • Motion Designer • Illustrator • UI/UX Designer •
-      Art Director • 3D Generalist • Motion Designer • Illustrator • UI/UX Designer •
-    </p>
-  </div>
-</section>
+    <>
+      {/* VideoWall, projets, etc. */}
+      <Banner items={jobs.map(job => ({ text: job }))} />
+      {/* Autres sections */}
+    </>
 
 
 {/* === SECTION PROJETS BEHANCE === */}

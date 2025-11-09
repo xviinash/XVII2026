@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import SocialIcons from "./SocialIcons"
 
 export default function VideoOverlay({ videos }) {
   const overlayRef = useRef();
@@ -61,7 +60,7 @@ export default function VideoOverlay({ videos }) {
         transition: "color 0.2s ease"
       }}
     >
-      <h1>XVIINAH</h1>
+      <h1>XVIINASH</h1>
       <p>Digital designer based in Paris</p>
 
     </div>

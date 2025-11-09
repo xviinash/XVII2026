@@ -10,7 +10,7 @@ const VideoWall = () => {
     <div className="video-overlay">
         <div className="overlay-text">
         <img src="/images/icon.svg" alt="Logo XVIINASH" className="overlay-logo" />
-        <h1>XVIINASH</h1>
+        <h1> XVIINASH</h1>
         <p>DIGITAL DESIGNER BASED IN PARIS</p>
         <SocialIcons />
         </div>

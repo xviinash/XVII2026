@@ -1,6 +1,12 @@
 :root {
   --font-display: "Inter", sans-serif;
 }
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* 🔒 empêche le décalage horizontal */
+}
 
 body {
   font-family: var(--font-display);
@@ -55,7 +61,7 @@ html, body {
 /* overlay texte showreel */
 .video-overlay {
   position: absolute;
-  bottom: 10%;           /* texte vers le bas */
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -63,10 +69,6 @@ html, body {
   align-items: center;
   text-align: center;
   z-index: 10;
-  isolation: isolate;    /* nécessaire pour mix-blend-mode */
-  padding: 0;            /* aucun padding */
-  background: none;      /* pas de cadre */
-  opacity: 0;             /* pour fade-in */
   animation: fadeInOverlay 1.2s ease forwards 0.5s;
 }
 
@@ -75,39 +77,47 @@ html, body {
   to { opacity: 1; }
 }
 
-/* texte showreel */
-.video-overlay h1 ,
+/* texte centré et équilibré */
+.video-overlay h1,
 .video-overlay p {
-  display: inline-block;       /* fait que chaque élément prend seulement la largeur de son contenu */
-  text-align: center;          /* texte centré à l'intérieur */
-  margin: 0;
-  font-weight: 10;
-  color: #fff;
-  mix-blend-mode: normal;
-  transition: color 0.2s ease;
-}
-h1 {
-  font-variation-settings: "wght" 600;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
 }
 
-
-/* tailles */
+/* titre */
 .video-overlay h1 {
   font-family: 'Inter', sans-serif;
   font-variation-settings: "wght" 100;
-  font-stretch: 75%; /* ou 75% pour plus condensé */
-  letter-spacing: 0.05em;
+  font-stretch: 75%;
   font-size: 3.5rem;
-   margin-bottom: 0.2rem; /* petit espace sous le logo */
+  letter-spacing: 0.5rem;  /* 🔹 un peu moins, plus homogène */
+  word-spacing: -0.25rem;  /* 🔹 compense la fin du mot visuellement */
+  margin-bottom: 0.2rem;
+  text-align: center;
 }
 
+/* sous-titre */
 .video-overlay p {
+    width: max-content; /* s’aligne sur la largeur du texte le plus long */
+  font-family: 'Inter', sans-serif;
+  font-variation-settings: "wght" 200;
   font-size: 1.2rem;
-  font-weight: 300;
-  margin-top: 0.3rem;
-    font-variation-settings: "wght" 200;
   letter-spacing: 0.03em;
+  margin-top: 0.3rem;
+  text-align: center;
+  
 }
+
+/* optionnel : verrouiller même largeur pour cohérence visuelle */
+/* optionnel : verrouiller même largeur pour cohérence visuelle */
+.video-overlay h1,
+.video-overlay p {
+  display: inline-block;
+  text-align: center;
+}
+
+
 .overlay-text {
   display: inline-block;   /* largeur = contenu */
   text-align: center;
@@ -189,43 +199,57 @@ h1 {
   font-display: swap;
 }
 
-
-/* === BANNIÈRE MÉTIERS === */
+.banner-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #FF0448;
+  font-size: 1.1rem;
+}
 .banner {
   width: 100%;
   overflow: hidden;
   background: #000;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  height: 55px;
+  height: 60px; /* ajustable */
   display: flex;
   align-items: center;
-  position: relative;
 }
 
-/* Conteneur du texte défilant */
 .banner-track {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
-  animation: scrollBanner 35s linear infinite;
-  will-change: transform;
+  animation: scrollBanner 30s linear infinite;
 }
 
-/* Texte de la bannière */
-.banner p {
-  display: inline-block;
+.banner-item {
+  display: flex;
+  align-items: center;
+  margin-right: 1rem; /* espace entre métiers */
+  color: #FF0448;
   font-family: 'Inter', sans-serif;
-  font-size: 1.35rem;
-  color: #fff;
-  letter-spacing: 0.05em;
-  margin: 0;
-  padding-right: 4rem; /* espace entre répétitions */
-  user-select: none;
-  -webkit-user-select: none;
-  text-transform: uppercase;
+  gap: 0.1rem;              /* espace constant entre texte et icône */
+  font-weight: 500;
+  font-size: 1.1rem;
+  white-space: nowrap;       /* empêcher le texte de passer à la ligne */
+  line-height: 1;       /* s’assure que le texte est centré */
 }
 
-/* Animation fluide infinie */
+.banner-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+
+
+.banner-icon img {
+  width: 16px;              /* taille fixe de l'icône */
+  height: 16px;
+  display: block;
+}
+
 @keyframes scrollBanner {
   0% {
     transform: translateX(0);
@@ -235,10 +259,26 @@ h1 {
   }
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .banner {
+    height: 40px;
+  }
+  .banner-item {
+    font-size: 0.9rem;
+  }
+  .banner-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.3rem;
+  }
+}
+
+
 /* Safari performance fix */
 @supports (-webkit-touch-callout: none) {
   .banner-track {
-    animation: scrollBanner 35s linear infinite;
+    animation: scrollBanner 30s linear infinite;
   }
 }
 
@@ -260,8 +300,8 @@ h1 {
   width: 20px; /* ajuste selon la taille souhaitée */
   height: auto;
   margin-bottom: 1rem;
-  filter: invert(1); /* si ton logo est noir, ça le rendra blanc */
   opacity: 0.9;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1);
 }
 
 
@@ -287,7 +327,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 0rem;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -383,9 +423,6 @@ h1 {
     gap: 1.5rem;
   }
 
-  .grid-item {
-    border-radius: 8px;
-  }
 
   .project_footer {
     padding: 0.8rem;
@@ -499,7 +536,6 @@ h1 {
   width: 100%;
   height: 480px;
   border: none;
-  border-radius: 0.25rem;
 }
 /* === IMAGE GRID MODULE === */
 .project-module-grid {
@@ -514,7 +550,6 @@ h1 {
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 6px;
 }
 
 
@@ -526,7 +561,7 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 0;
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -565,6 +600,7 @@ h1 {
   font-family: "Inter", sans-serif;
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-wrap: wrap; /* permet aux éléments de passer sur plusieurs lignes si nécessaire */
 }
 
 /* COLONNE GAUCHE - Réseaux */
@@ -608,6 +644,17 @@ h1 {
 .footer-right p {
   opacity: 0.7;
   margin: 0;
+}
+/* Supprime l'espace entre la bannière et les projets sur mobile */
+@media (max-width: 768px) {
+  .banner {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .projects {
+    padding-top: 0;
+  }
 }
 
 
