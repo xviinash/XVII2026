@@ -1,30 +1,35 @@
+/* =========================================
+   1. VARIABLES & FONTS
+   ========================================= */
 :root {
-  --font-display: "Inter", sans-serif;
-}
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden; /* 🔒 empêche le décalage horizontal */
-}
-
-body {
-  font-family: var(--font-display);
-  font-variation-settings: "wght" 400, "opsz" 14;
-  color: white;
-  background: black;
-}
-
-
-ultra-thin {
-  font-weight: 100;
+  /* Couleurs */
+  --bg-color: #000000;
+  --bg-card: #111111;
+  --text-color: #ffffff;
+  --accent-color: #FF0448; /* Rouge rosé */
+  --gold-hover: #ffd700;
+  
+  /* Typographie */
+  --font-main: "Inter", system-ui, sans-serif;
+  --font-serif: "Gambarino", serif;
+  
+  /* Layout */
+  --page-width: 1000px;
 }
 
-.subtitle {
-  font-weight: 200;
-  letter-spacing: 0.05em;
+@font-face {
+  font-family: 'Gambarino';
+  src: url('../font/Gambarino-Regular.woff2') format('woff2'),
+       url('../font/Gambarino-Regular.woff') format('woff'),
+       url('../font/Gambarino-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
-/* === RESET GLOBAL === */
+
+/* =========================================
+   2. GLOBAL RESET & BASE
+   ========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -33,14 +38,33 @@ ultra-thin {
 
 html, body {
   width: 100%;
-  height: 100%;
-  background-color: #000;
-  color: #fff;
-  font-family: "Inter", system-ui, sans-serif;
+  min-height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  font-variation-settings: "wght" 400, "opsz" 14;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
-/* === VIDEO WALL + OVERLAY === */
+/* Utilitaires de texte */
+.ultra-thin { /* Corrigé: ajout du point (.) car c'est une classe */
+  font-weight: 100;
+}
+
+.subtitle {
+  font-weight: 200;
+  letter-spacing: 0.05em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* =========================================
+   3. HERO SECTION (VIDEO WALL)
+   ========================================= */
 .video-wall {
   position: relative;
   display: flex;
@@ -55,163 +79,215 @@ html, body {
   height: 100%;
   object-fit: cover;
   z-index: 1;
-  position: relative;
 }
 
-/* overlay texte showreel */
+/* Gestion affichage Desktop/Mobile */
+.video-mobile { display: none; }
+.video-desktop { display: block; }
+
+@media (max-width: 768px) {
+  .video-desktop { display: none; }
+  .video-mobile { display: block; }
+}
+
+/* === VIDEO OVERLAY & TEXT === */
+
+/* === 1. LE CONTENEUR PRINCIPAL === */
 .video-overlay {
   position: absolute;
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
+  width: 100%;
+  padding: 0 1rem;
+  z-index: 10;
+  
+  /* L'animation d'apparition */
+  animation: fadeInOverlay 1.2s ease forwards 0.5s;
+  opacity: 0; 
+
+  /* 🔥 LE CORRECTIF EST ICI 🔥 */
+  /* On applique le mode de fusion sur tout le bloc qui flotte */
+  mix-blend-mode: difference;
+}
+
+/* === 2. LE TEXTE (On nettoie) === */
+.overlay-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  z-index: 10;
-  animation: fadeInOverlay 1.2s ease forwards 0.5s;
+  width: 100%;
+  
+  /* On enlève le mix-blend-mode d'ici, sinon il est bloqué par le parent */
+  /* mix-blend-mode: difference; <--- SUPPRIMER */
+  
+  color: #fff; /* Le texte doit être blanc pur pour que l'inversion marche */
 }
 
-/* animation fade-in */
+/* === 3. LE LOGO === */
+.overlay-logo {
+  width: 24px;
+  height: auto;
+  margin-bottom: 1rem;
+  
+  /* IMPORTANT : Le logo doit être BLANC pour être inversé par la vidéo */
+  /* Si ton image source est noire, garde l'invert. Si elle est blanche, enlève-le. */
+  filter: brightness(0) invert(1); 
+  opacity: 1;
+}
+
+/* Le conteneur Flex qui centre tout verticalement */
+/* === GROUPE TEXTE ET LOGO === */
+.overlay-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  
+  /* On enlève le mix-blend-mode d'ici, sinon il est bloqué par le parent */
+  /* mix-blend-mode: difference; <--- SUPPRIMER */
+  
+  color: #fff; /* Le texte doit être blanc pur pour que l'inversion marche */
+}
+
+/* === PETIT AJUSTEMENT LOGO === */
+/* Comme on utilise mix-blend-mode, on n'a plus forcément besoin d'inverser le logo 
+   s'il est déjà noir ou blanc, mais pour être sûr qu'il soit BLANC au départ : */
+.overlay-logo {
+  width: 24px;
+  height: auto;
+  margin-bottom: 1rem;
+  
+  /* IMPORTANT : Le logo doit être BLANC pour être inversé par la vidéo */
+  /* Si ton image source est noire, garde l'invert. Si elle est blanche, enlève-le. */
+  filter: brightness(0) invert(1); 
+  opacity: 1;
+}
+
+.overlay-text h1 {
+  font-family: var(--font-main); /* Inter */
+  font-weight: 100; /* Très fin */
+  font-size: 3.5rem;
+  letter-spacing: 0.5rem;
+  margin: 0;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-align: center;
+  
+  /* Petite astuce pour compenser visuellement le letter-spacing à droite */
+  text-indent: 0.5rem; 
+}
+
+.overlay-text p {
+  font-family: var(--font-main);
+  font-weight: 200;
+  font-size: 0.9rem; /* Taille de base propre */
+  letter-spacing: 0.15em; /* Espacement élégant */
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+  
+  /* 🔥 C'EST ICI LA MAGIE DU "UNE SEULE LIGNE" 🔥 */
+  white-space: nowrap; /* Interdit le retour à la ligne */
+  width: auto;
+}
+
+/* === RESPONSIVE MOBILE === */
+/* Indispensable car ton sous-titre est long */
+@media (max-width: 768px) {
+  .overlay-text h1 {
+    font-size: 2.2rem; /* Titre plus petit */
+    letter-spacing: 0.3rem;
+    text-indent: 0.3rem;
+  }
+
+  .overlay-text p {
+    font-size: 0.65rem; /* On réduit la police pour que ça tienne sur une ligne */
+    letter-spacing: 0.1em;
+  }
+}
+
 @keyframes fadeInOverlay {
   to { opacity: 1; }
 }
 
-/* texte centré et équilibré */
-.video-overlay h1,
-.video-overlay p {
-  text-align: center;
-  margin: 0 auto;
-  display: block;
+.overlay-logo {
+  width: 20px;
+  height: auto;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  filter: invert(100%) brightness(1); /* Simplifié */
 }
 
-/* titre */
 .video-overlay h1 {
-  font-family: 'Inter', sans-serif;
   font-variation-settings: "wght" 100;
   font-stretch: 75%;
   font-size: 3.5rem;
-  letter-spacing: 0.5rem;  /* 🔹 un peu moins, plus homogène */
-  word-spacing: -0.25rem;  /* 🔹 compense la fin du mot visuellement */
+  letter-spacing: 0.5rem;
   margin-bottom: 0.2rem;
-  text-align: center;
+  line-height: 1.1;
 }
 
-/* sous-titre */
 .video-overlay p {
-    width: max-content; /* s’aligne sur la largeur du texte le plus long */
-  font-family: 'Inter', sans-serif;
   font-variation-settings: "wght" 200;
   font-size: 1.2rem;
   letter-spacing: 0.03em;
   margin-top: 0.3rem;
-  text-align: center;
-  
+  width: max-content;
+  max-width: 90%; /* Sécurité mobile */
 }
 
-/* optionnel : verrouiller même largeur pour cohérence visuelle */
-/* optionnel : verrouiller même largeur pour cohérence visuelle */
-.video-overlay h1,
-.video-overlay p {
-  display: inline-block;
-  text-align: center;
-}
-
-
-.overlay-text {
-  display: inline-block;   /* largeur = contenu */
-  text-align: center;
-}
-.overlay-text h1,
-.overlay-text p {
-  display: block;
-  margin: 0;
-}
-
-
-
-/* === SOCIAL ICONS === */
-/* === SOCIAL ICONS STYLE LIQUID GLASS === */
-.social-icons {
+/* Social Icons dans l'overlay */
+.video-overlay .social-icons {
   display: flex;
   justify-content: center;
-  gap: 1rem; /* espace entre les icônes */
+  gap: 1rem; /* Corrigé: suppression de l'espace '1.0 rem' */
   margin-top: 1.5rem;
+  z-index: 11;
 }
 
+/* Style "Liquid Glass" des boutons */
 .social-icons a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;        /* largeur du bouton */
-  height: 40px;       /* hauteur du bouton */
-  padding: 10px;      /* espace autour de l'icône */
+  width: 40px;
+  height: 40px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50%;
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   color: #fff;
-  font-size: 1.5rem;  /* icône plus visible à l'intérieur */
-  text-decoration: none;
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  transform: scale(1.2);
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffd700;
-}
-
-
-.video-overlay .social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 1.0 rem;
-  margin-top: 1.5 rem;
-  z-index: 11;
-}
-
-.video-overlay .social-icons a {
-  font-size: 1.8rem;
-  color: #fff;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-.video-overlay .social-icons a:hover {
   transform: scale(1.15);
-  color: #ccc;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--gold-hover);
 }
 
-/* responsive */
+/* Responsive Hero */
 @media (max-width: 768px) {
   .video-overlay h1 { font-size: 2rem; }
   .video-overlay p { font-size: 1rem; }
 }
 
-/* === FONT FACE === */
-@font-face {
-  font-family: 'Gambarino';
-  src: url('../font/Gambarino-Regular.woff2') format('woff2'),
-       url('../font/Gambarino-Regular.woff') format('woff'),
-       url('../font/Gambarino-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-.banner-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  color: #FF0448;
-  font-size: 1.1rem;
-}
+/* =========================================
+   4. INFINITE BANNER
+   ========================================= */
 .banner {
   width: 100%;
+  height: 60px;
+  background: var(--bg-color);
   overflow: hidden;
-  background: #000;
-  height: 60px; /* ajustable */
   display: flex;
   align-items: center;
+  position: relative;
 }
 
 .banner-track {
@@ -219,134 +295,80 @@ html, body {
   align-items: center;
   white-space: nowrap;
   animation: scrollBanner 30s linear infinite;
+  will-change: transform; /* Optimisation perfs */
 }
 
 .banner-item {
   display: flex;
   align-items: center;
-  margin-right: 1rem; /* espace entre métiers */
-  color: #FF0448;
-  font-family: 'Inter', sans-serif;
-  gap: 0.1rem;              /* espace constant entre texte et icône */
+  margin-right: 1rem;
+  color: var(--accent-color);
   font-weight: 500;
   font-size: 1.1rem;
-  white-space: nowrap;       /* empêcher le texte de passer à la ligne */
-  line-height: 1;       /* s’assure que le texte est centré */
+  line-height: 1;
 }
 
 .banner-icon {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
   width: 20px;
   height: 20px;
   margin-right: 0.5rem;
 }
 
-
 .banner-icon img {
-  width: 16px;              /* taille fixe de l'icône */
+  width: 16px;
   height: 16px;
   display: block;
 }
 
 @keyframes scrollBanner {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .banner {
-    height: 40px;
+  .banner { 
+    height: 40px; 
+    margin-bottom: 0; /* Fix espace mobile */
   }
-  .banner-item {
-    font-size: 0.9rem;
-  }
-  .banner-icon {
-    width: 16px;
-    height: 16px;
-    margin-right: 0.3rem;
-  }
+  .banner-item { font-size: 0.9rem; }
 }
 
-
-/* Safari performance fix */
-@supports (-webkit-touch-callout: none) {
-  .banner-track {
-    animation: scrollBanner 30s linear infinite;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .banner {
-    height: 40px;
-  }
-  .banner p {
-    font-size: 1rem;
-    padding-right: 2rem;
-  }
-}
-
-
-
-
-.overlay-logo {
-  width: 20px; /* ajuste selon la taille souhaitée */
-  height: auto;
-  margin-bottom: 1rem;
-  opacity: 0.9;
-    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1);
-}
-
-
-/* === SECTION PROJETS === */
+/* =========================================
+   5. PROJECT GRID (Portfolio)
+   ========================================= */
 .projects {
   width: 100%;
-  background: #000;
-  padding: 0rem 0; /* réduit drastiquement l’espace */
-  margin-top: 0; 
+  background: var(--bg-color);
+  padding: 0;
+  margin-top: 0;
 }
 
 .projects h2 {
   text-align: center;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
   font-weight: 500;
   font-size: 2rem;
   letter-spacing: 0.1em;
-  color: #fff;
 }
 
-/* === GRILLE DE MINIATURES === */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 0rem;
+  gap: 0; /* Collé comme demandé */
   width: 100%;
   margin: 0 auto;
 }
 
-/* === MINIATURE (chaque projet Behance) === */
+/* Items Grid */
 .grid-item {
   position: relative;
   aspect-ratio: 5 / 4;
   overflow: hidden;
-  border-radius: 0px;
-  background: #111;
+  background: var(--bg-card);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.grid-item:hover {
-  transform: none;
-  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
-}
-
-/* === IMAGE === */
 .grid-item img {
   width: 100%;
   height: 100%;
@@ -355,22 +377,32 @@ html, body {
   transition: transform 0.4s ease;
 }
 
-.grid-item img:hover {
+/* Effets Hover */
+.grid-item:hover {
+  z-index: 2; /* Passe au dessus */
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+}
+
+.grid-item:hover img {
   transform: scale(1.05);
 }
 
-/* === FOOTER DU PROJET === */
+/* === FOOTER DU PROJET (Miniature) === */
 .project_footer {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 1rem;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  padding: 1.5rem; /* Un peu plus d'espace pour respirer */
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
   color: #fff;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.3s ease;
+  opacity: 0; /* Caché par défaut */
+  transform: translateY(15px);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Animation plus fluide */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligne tout à gauche */
+  gap: 0.5rem;
 }
 
 .grid-item:hover .project_footer {
@@ -378,92 +410,135 @@ html, body {
   transform: translateY(0);
 }
 
-/* === TEXTE & ARROW === */
-.arrow_project {
-  display: flex;
-  align-items: center;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  gap: 6px;
-  margin-bottom: 0.4rem;
-}
-
+/* Titre du projet */
 .project_footer h4 {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 500;
-  margin-bottom: 0.4rem;
+  margin: 0;
+  letter-spacing: -0.02em;
 }
 
+/* Container des tags (Fields) */
 .fields_container {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .fields_container .fields {
-  font-size: 0.75rem;
-  padding: 0.25rem 0.6rem;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px;
-  opacity: 0.8;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Bordure très subtile */
+  border-radius: 100px;
+  color: rgba(255, 255, 255, 0.7);
+  background: transparent;
 }
 
-/* === RESPONSIVE === */
+/* === LE BOUTON "VIEW PROJECT" === */
+/* Assure-toi que ton lien a la classe .project-btn ou cible le <a> directement */
+.project_footer .project-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  /* Le style "Ghost" subtil */
+  color: rgba(255, 255, 255, 0.8); 
+  background: rgba(255, 255, 255, 0.05); /* Très légère teinte */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Bordure fine transparente */
+  border-radius: 50px; /* Forme pilule */
+  
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px); /* Petit effet flou derrière le bouton */
+}
+
+/* Au survol du bouton uniquement */
+.project_footer .project-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
+  transform: translateX(5px); /* Petit mouvement vers la droite */
+}
+
+/* Mise en avant des 2 premiers projets (Bento style) */
+.grid-item:nth-child(1),
+.grid-item:nth-child(2) {
+  grid-column: span 2;
+  aspect-ratio: 5 / 2;
+}
+
+/* Responsive Grid */
+@media (max-width: 1024px) {
+  /* Annulation du Bento style sur tablette/mobile */
+  .grid-item:nth-child(1),
+  .grid-item:nth-child(2) {
+    grid-column: span 1;
+    aspect-ratio: 5 / 4;
+  }
+}
+
 @media (max-width: 768px) {
-  .projects {
-    padding: 4rem 0 2rem 0;
-  }
-
-  .projects h2 {
-    font-size: 1.6rem;
-  }
-
-  .grid {
-    width: 90vw;
-    gap: 1.5rem;
-  }
-
-
-  .project_footer {
-    padding: 0.8rem;
-  }
+  .projects { padding-top: 0; }
+  .projects h2 { font-size: 1.6rem; margin-bottom: 2rem; }
+  .grid { width: 100%; gap: 0; }
+  /* Sur mobile, souvent mieux d'avoir un petit gap, tu peux mettre gap: 1rem ici si besoin */
 }
-/* === PROJECT PAGE === */
-/* === PROJECT PAGE (Local Render) === */
+
+/* =========================================
+   6. PROJECT DETAIL PAGE
+   ========================================= */
 .project-page {
   width: 100%;
   min-height: 100vh;
-  background: #000;
-  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
 }
 
-.project-header {
-  width: 100%;
-  max-width: 1000px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-}
-
+.project-header, 
 .project-content {
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--page-width); /* ou 1000px */
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  
+  /* C'est LE coupable : on le met à 0 */
+  gap: 0; 
+}
+
+.project-header {
+  width: 100%;
+  max-width: var(--page-width); /* ou 1000px */
+  
+  /* C'est cette ligne qui écarte le bouton (gauche) du reste (droite) */
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  
+  margin-bottom: 2rem;
+  padding: 0 1rem; /* Sécurité pour ne pas coller aux bords sur mobile */
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 0 !important; /* Force la suppression des écarts Flexbox */
 }
 
 .project-cover {
   width: 100%;
   border-radius: 0.5rem;
-  object-fit: cover;
-  box-shadow: 0 0 20px #0005;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 .project-description {
@@ -474,136 +549,140 @@ html, body {
   max-width: 800px;
 }
 
-.view-on-behance {
-  color: #fff;
-  border: 1px solid #fff3;
-  padding: 0.6rem 1.2rem;
-  text-decoration: none;
-  border-radius: 0.4rem;
-  transition: 0.2s;
-}
-
-.view-on-behance:hover {
-  background: #fff1;
-}
-
-.back-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: transparent;
-  border: 1px solid #fff3;
-  color: #fff;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.back-btn:hover {
-  background: #fff1;
-}
-
 /* === PROJECT MODULES === */
+
+/* Conteneur global des modules pour assurer l'alignement */
 .project-module-img,
 .project-module-text,
-.project-module-embed {
-  max-width: 1000px;
+.project-module-embed,
+.project-module-grid {
   width: 100%;
-  margin: 1rem 0; /* espace réduit */
+  max-width: var(--page-width); /* 1000px défini dans :root */
+  margin: 0 auto; /* Centre le bloc horizontalement */
 }
 
-.project-module-img {
-   margin: -1rem 0; 
-    image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+/* 1. CORRECTION IMAGES (Collées) */
+
+/* 2. CORRECTION VIDÉOS (Même taille & Centrées) */
+.project-module-embed {
+  position: relative;
+  width: 100%;        /* Force à prendre toute la largeur disponible */
+  margin: 2rem auto;  /* Garde un peu d'espace avant/après la vidéo */
+  display: block;     /* On évite flex ici pour bien respecter le width */
 }
 
+.project-module-embed iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Remplace height: 480px pour un ratio parfait sur mobile et desktop */
+  height: auto;
+  border: none;
+}
+
+/* Texte (garde un peu d'espace pour respirer) */
 .project-module-text {
   font-size: 1.05rem;
   line-height: 1.6;
   opacity: 0.95;
   text-align: left;
-  max-width: 900px;
+  max-width: 900px; /* Un peu plus étroit que les images pour la lisibilité */
+  margin: 2rem auto; 
 }
 
-.project-module-embed {
-  display: flex;
-  justify-content: center;
-}
-
-.project-module-embed iframe {
-  width: 100%;
-  height: 480px;
-  border: none;
-}
-/* === IMAGE GRID MODULE === */
+/* === GRID MODULE (Images en colonnes) === */
 .project-module-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 10px;
+  gap: 10px; /* Espace entre les images de la grille */
   width: 100%;
-  max-width: 1000px;
+  max-width: var(--page-width);
+  margin: 0 auto; /* Pas de marge haute/basse pour coller aux modules simples */
 }
 
 .project-grid-img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-
-.project-grid-img:hover {
-  transform: scale(1.02);
-}
-/* --- Première ligne avec 2 projets --- */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 0;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* --- 2 premiers projets (même hauteur que les autres) --- */
-.grid-item:nth-child(1),
-.grid-item:nth-child(2) {
-  grid-column: span 2;
-  aspect-ratio: 5 / 2; /* même proportion que les autres */
-  overflow: hidden; /* coupe le débordement */
-}
-
-.grid-item:nth-child(1) img,
-.grid-item:nth-child(2) img {
-  width: 100%;
   height: 100%;
-  object-fit: cover; /* crop sans déformation */
-  object-position: center; /* centré verticalement */
+  object-fit: cover;
+  display: block;
 }
 
-/* --- Responsive : retour à normal sur tablette/mobile --- */
-@media (max-width: 1024px) {
-  .grid-item:nth-child(1),
-  .grid-item:nth-child(2) {
-    grid-column: span 1;
-    aspect-ratio: 5 / 4;
-  }
+/* === GIFS & COMPACT MEDIA === */
+/* On cible les GIFs pour éviter qu'ils ne mangent tout l'écran */
+
+
+
+/* Si tu veux que certains GIFs restent en grille, 
+   on s'assure qu'ils ne cassent pas le layout */
+/* === GRILLE D'IMAGES (Séparation) === */
+.project-module-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
+  max-width: var(--page-width);
+  
+  /* C'est ici qu'on gère l'espacement externe */
+  /* Haut(4rem) | Droite(auto) | Bas(2rem) | Gauche(auto) */
+  margin: 1rem auto .2rem auto !important; 
+
 }
+
+/* === RÉDUCTION DES ESPACES ENTRE MODULES IMAGES === */
+
+/* === PROJECT MODULES - IMAGES COLLÉES === */
+
+/* Le conteneur de l'image */
+.project-module-img {
+  display: block;
+  width: 100%;
+  margin: 0;     /* Force 0 marge externe */
+  padding: 0;
+  line-height: 0; /* Tue l'espace fantôme sous les images */
+  font-size: 0;   /* Sécurité supplémentaire */
+}
+
+.project-module-img img {
+  display: block; /* Indispensable */
+  width: 100%;
+  height: auto;
+  border: none;
+  margin: 0;
+}
+
+/* Boutons */
+.view-on-behance, 
+.back-btn {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.4rem;
+  transition: background 0.2s;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.view-on-behance:hover, 
+.back-btn:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* =========================================
+   7. FOOTER
+   ========================================= */
 .footer {
   width: 100%;
   padding: 1.2rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: transparent;
-  color: #fff;
-  font-family: "Inter", sans-serif;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espace si ça passe à la ligne */
   font-size: 0.9rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  flex-wrap: wrap; /* permet aux éléments de passer sur plusieurs lignes si nécessaire */
 }
 
-/* COLONNE GAUCHE - Réseaux */
 .footer-left {
   display: flex;
   gap: 0.8rem;
@@ -617,8 +696,6 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.1rem;
   transition: all 0.25s ease;
 }
 
@@ -627,35 +704,57 @@ html, body {
   background: rgba(255, 255, 255, 0.15);
 }
 
-/* CENTRE - Email */
-.footer-center .footer-email {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 400;
+.footer-email {
   opacity: 0.9;
+  transition: opacity 0.2s;
 }
 
-.footer-center .footer-email:hover {
+.footer-email:hover {
   opacity: 1;
   text-decoration: underline;
 }
 
-/* DROITE - Crédit */
 .footer-right p {
   opacity: 0.7;
-  margin: 0;
 }
-/* Supprime l'espace entre la bannière et les projets sur mobile */
-@media (max-width: 768px) {
-  .banner {
-    margin-bottom: 0;
-    padding-bottom: 0;
-  }
+/* === AMBIENT BACKGROUND === */
 
-  .projects {
-    padding-top: 0;
-  }
+/* L'image de fond floutée */
+.ambient-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2; /* Tout au fond */
+  
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  /* L'effet de flou intense + saturation pour rendre les couleurs vibrantes */
+  filter: blur(80px) saturate(1.4) brightness(0.8);
+  
+  transform: scale(1.1); /* Zoom léger pour éviter les bords blancs du flou */
+  transition: opacity 1.2s ease-in-out; /* Apparition très douce */
+  pointer-events: none;
 }
 
+/* Le calque sombre par-dessus l'image floutée */
+.ambient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Juste au-dessus de l'image, mais sous le contenu */
+  background: rgba(0, 0, 0, 0.7); /* Ajuste l'opacité ici si tu veux plus/moins sombre */
+  pointer-events: none;
+}
 
-
+/* IMPORTANT : Rendre le fond de la page transparent pour voir l'effet */
+.project-page {
+  background: transparent !important;
+  position: relative;
+  z-index: 1; /* Le contenu passe devant */
+}
