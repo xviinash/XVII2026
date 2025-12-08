@@ -10,8 +10,7 @@
   --gold-hover: #ffd700;
   
   /* Typographie */
-  --font-main: "Inter", system-ui, sans-serif;
-  --font-serif: "Gambarino", serif;
+--font-main: "loos-condensed", "Inter", sans-serif;
   
   /* Layout */
   --page-width: 1000px;
@@ -43,6 +42,7 @@ html, body {
   color: var(--text-color);
   font-family: var(--font-main);
   font-variation-settings: "wght" 400, "opsz" 14;
+  font-style: normal;
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
@@ -114,6 +114,9 @@ a {
 /* === 2. LE TEXTE (On nettoie) === */
 .overlay-text {
   display: flex;
+  font-weight: 100;
+  letter-spacing: 0.6rem; 
+  text-indent: 0.6rem; /* Pour compenser le décalage optique */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -178,18 +181,18 @@ a {
   text-transform: uppercase;
   text-align: center;
   
-  /* Petite astuce pour compenser visuellement le letter-spacing à droite */
-  text-indent: 0.5rem; 
+
 }
 
 .overlay-text p {
   font-family: var(--font-main);
-  font-weight: 200;
+  font-weight: 100;
   font-size: 0.9rem; /* Taille de base propre */
-  letter-spacing: 0.15em; /* Espacement élégant */
+  letter-spacing: 0.2em; /* Espacement élégant */
   margin-top: 0.5rem;
   text-transform: uppercase;
-  
+    /* Petite astuce pour compenser visuellement le letter-spacing à droite */
+  text-indent: 0.5rem; 
   /* 🔥 C'EST ICI LA MAGIE DU "UNE SEULE LIGNE" 🔥 */
   white-space: nowrap; /* Interdit le retour à la ligne */
   width: auto;
@@ -266,9 +269,9 @@ a {
 }
 
 .social-icons a:hover {
-  transform: scale(1.15);
+transform: scale(1.15);
   background: rgba(255, 255, 255, 0.15);
-  color: var(--gold-hover);
+  color: var(--accent-color);
 }
 
 /* Responsive Hero */
@@ -502,7 +505,7 @@ a {
   padding: 2rem;
 }
 
-.project-header, 
+
 .project-content {
   width: 100%;
   max-width: var(--page-width); /* ou 1000px */
@@ -514,18 +517,6 @@ a {
   gap: 0; 
 }
 
-.project-header {
-  width: 100%;
-  max-width: var(--page-width); /* ou 1000px */
-  
-  /* C'est cette ligne qui écarte le bouton (gauche) du reste (droite) */
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  
-  margin-bottom: 2rem;
-  padding: 0 1rem; /* Sécurité pour ne pas coller aux bords sur mobile */
-}
 
 .project-content {
   display: flex;
@@ -547,6 +538,64 @@ a {
   opacity: 0.8;
   text-align: center;
   max-width: 800px;
+}
+/* 2. Le titre est détaché et centré mathématiquement */
+
+/* === HEADER PROJET (Desktop) === */
+.project-header {
+  position: relative;
+  width: 100%;
+  max-width: var(--page-width);
+  min-height: 60px; /* On utilise min-height pour permettre l'extension sur mobile */
+  margin: 0 auto 2rem auto;
+  
+  display: flex;
+  align-items: center;
+  padding: 0 1rem; /* Marge de sécurité sur les bords */
+}
+/* Le titre (Centré par défaut sur Desktop) */
+.project-header h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  
+  margin: 0;
+  width: max-content;
+  max-width: 60%; /* Empêche le titre de toucher le bouton sur tablette */
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+/* === RESPONSIVE MOBILE (La solution au chevauchement) === */
+@media (max-width: 768px) {
+  .project-header {
+    /* On change la direction : les éléments s'empilent verticalement */
+    flex-direction: column; 
+    align-items: flex-start; /* Tout aligné à gauche */
+    justify-content: center;
+    gap: 1.5rem; /* Espace entre le bouton et le titre */
+    margin-bottom: 1rem;
+  }
+
+  /* On réinitialise le titre pour qu'il redevienne un bloc normal */
+  .project-header h2 {
+    position: relative; /* Plus d'absolute */
+    left: auto;
+    top: auto;
+    transform: none; /* On annule le centrage forcé */
+    
+    width: 100%; /* Prend toute la largeur */
+    max-width: 100%;
+    text-align: left; /* Plus lisible à gauche sur mobile */
+    font-size: 1.8rem; /* On peut même le grossir un peu pour le style */
+    padding-left: 0.5rem; /* Petit alignement optique avec le bouton */
+    
+    /* Permet le retour à la ligne si le titre est long */
+    white-space: normal; 
+    word-wrap: break-word;
+  }
 }
 
 /* === PROJECT MODULES === */
@@ -651,21 +700,24 @@ a {
 /* Boutons */
 .view-on-behance, 
 .back-btn {
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 0.6rem 1.2rem;
-  border-radius: 0.4rem;
-  transition: background 0.2s;
-  background: transparent;
-  color: #fff;
-  cursor: pointer;
+  position: relative;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap; /* Le bouton ne doit jamais se casser */
 }
 
 .view-on-behance:hover, 
 .back-btn:hover {
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* =========================================
