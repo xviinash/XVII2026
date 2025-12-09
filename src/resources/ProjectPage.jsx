@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { Behance } from "../resources/Behance";
 import "../assets/styles/portfolio.css";
 
@@ -24,12 +24,12 @@ const ProjectPage = () => {
         setLoading(false);
       });
     }
-  }, [id, project]); // Ajout de project dans les dépendances pour éviter des boucles si mal géré
+  }, [id, project]);
 
   // === 🎨 LOGIQUE AMBIENT BACKGROUND ===
   useEffect(() => {
     if (project) {
-      // 1. On cherche d'abord dans les "covers" officielles de Behance (souvent meilleure qualité pour ça)
+      // 1. On cherche d'abord dans les "covers" officielles de Behance
       let imageSource = project.covers?.original || project.covers?.['404'] || project.covers?.['202'];
 
       // 2. Si pas de cover, on prend la première image des modules
@@ -48,31 +48,52 @@ const ProjectPage = () => {
     <div className="project-page">
       
       {/* === AMBIENT BACKGROUND LAYERS === */}
-      {/* L'image floutée dynamique */}
       <div 
         className="ambient-background" 
         style={{ 
           backgroundImage: bgImage ? `url(${bgImage})` : 'none',
-          opacity: bgImage ? 1 : 0 // Transition douce à l'apparition
+          opacity: bgImage ? 1 : 0 
         }} 
       />
-      {/* Le filtre sombre pour la lisibilité */}
       <div className="ambient-overlay" />
 
-
-      {/* header avec bouton Back */}
+{/* === HEADER (Back - Titre - Behance) === */}
       <header className="project-header">
-        <button className="back-btn" onClick={() => navigate(-1)}>
+        
+        {/* 1. Bouton Back */}
+        <button 
+          className="header-btn back-btn-wrapper" // On applique la classe commune
+          onClick={() => navigate(-1)}
+        >
           <ArrowLeft size={18} /> Back
         </button>
+        
+        {/* 2. Titre du Projet */}
         <h2>{project?.name || "Chargement..."}</h2>
+
+        {/* 3. Bouton Behance */}
+{project?.url && (
+  <a 
+    href={project.url} 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    className="header-btn behance-btn-wrapper"
+  >
+    {/* On remplace "View on Behance ↗" par ceci : */}
+    View on Behance <ArrowUpRight size={18} strokeWidth={1.5} />
+  </a>
+)}
       </header>
 
+      {/* Message de chargement si pas encore de projet */}
       {loading && !project && <p style={{ opacity: 0.6, textAlign: 'center' }}>Chargement du projet…</p>}
 
+      {/* Contenu du projet */}
       {project && (
         <div className="project-content">
           {project.modules?.map((mod, i) => {
+            
+            // --- MODULE IMAGE ---
             if (mod.type === "image") {
               const bestSrc = mod.sizes?.max_1920 || mod.sizes?.max_1240 || mod.src;
               return (
@@ -82,6 +103,7 @@ const ProjectPage = () => {
               );
             }
 
+            // --- MODULE GRID ---
             else if (mod.type === "image_grid" || mod.type === "media_collection" || mod.type === "grid") {
               const images = mod.components || mod.elements || mod.images;
               if (!images || images.length === 0) return null;
@@ -100,12 +122,14 @@ const ProjectPage = () => {
               );
             }
 
+            // --- MODULE TEXTE ---
             else if (mod.type === "text") {
               return (
                 <div key={i} className="project-module-text" dangerouslySetInnerHTML={{ __html: mod.text }} />
               );
             }
 
+            // --- MODULE EMBED (Vidéo, etc.) ---
             else if (mod.type === "embed") {
               return (
                 <div key={i} className="project-module-embed" dangerouslySetInnerHTML={{ __html: mod.embed }} />
@@ -114,15 +138,8 @@ const ProjectPage = () => {
 
             return null;
           })}
-
-          <a
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="view-on-behance"
-          >
-            View on Behance ↗
-          </a>
+          
+          {/* L'ancien bouton Behance qui était ici a été supprimé car déplacé dans le header */}
         </div>
       )}
     </div>

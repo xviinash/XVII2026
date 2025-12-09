@@ -1,62 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { Behance } from "./resources/Behance";
-import PortefolioComponent from "./components/PortefolioComponent";
-import "./assets/styles/portfolio.css";
-import Banner from "./components/Banner.jsx"; // ✅ On importe la bannière
-import VideoWall from "./components/VideoWall.jsx"; // <-- ton composant
-import Footer from "./components/Footer.jsx"; // ✅ on importe le footer
+import React from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+// === IMPORTS DES PAGES ===
+// Vérifie bien que tes fichiers sont à ces endroits !
+import Home from "./pages/Home";           // On va créer ce fichier juste après
+import ProjectPage from "./resources/ProjectPage"; // Ton chemin actuel selon ton ancien main.jsx
+import NotFound from "./pages/NotFound";   // La page 404 qu'on a créée
 
 const App = () => {
-  const [projects, setProjects] = useState([]);
-const jobs = [
-  "ART DIRECTOR",
-  "BRAND DESIGNER",
-  "3D GENERALIST",
-  "MOTION DESIGNER",
-  "ILLUSTRATOR",
-  "UI/UX DESIGNER",
-];
+  const location = useLocation();
+
+  // Petite astuce UX : Quand on change de page, on remonte tout en haut
   useEffect(() => {
-    const behance = new Behance();
-    behance.getProjectsByUser().done((data) => {
-      if (data?.projects?.length) {
-        setProjects(data.projects);
-      }
-    });
-  }, []);
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
-    <>
-      {/* === SECTION SHOWREEL === */}
-      <VideoWall /> {/* ✅ on appelle ton composant avec le texte intégré */}
+    <Routes>
+      {/* Page d'Accueil */}
+      <Route path="/" element={<Home />} />
 
-      {/* === SECTION PROJETS BEHANCE === */}
-{/* === SECTION BANNIÈRE === */}
-    <>
-      {/* VideoWall, projets, etc. */}
-      <Banner items={jobs.map(job => ({ text: job }))} />
-      {/* Autres sections */}
-    </>
+      {/* Page Projet */}
+      <Route path="/project/:id" element={<ProjectPage />} />
 
-
-{/* === SECTION PROJETS BEHANCE === */}
-<section className="projects">
-  <div className="grid">
-    {projects.length > 0 ? (
-      projects.map((project) => (
-        <PortefolioComponent key={project.id} project={project} />
-      ))
-    ) : (
-      <p style={{ textAlign: "center", opacity: 0.6 }}>
-        Chargement des projets...
-      </p>
-    )}
-  </div>
-</section>
-      {/* === SECTION FOOTER === */}
-      <Footer /> {/* ✅ ajout du footer ici */}
-
-    </>
+      {/* Page 404 (Attrape tout le reste) */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 };
 
