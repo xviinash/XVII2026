@@ -1,6 +1,7 @@
 [
   {
     "id": 228612645,
+    "slug": "selfish-artwork",
     "name": "LOGO & ARTWORK - SELFISH",
     "fields": ["Graphic Design", "Typography", "Art Direction"],
     "url": "https://www.behance.net/gallery/228612645/LOGO-ARTWORK-SELFISH",
@@ -13,6 +14,7 @@
   {
     "id": 228967873,
     "name": "VR & INTERACTIVE EXPERIENCE - Cryptofaunia",
+    "slug": "cryptofaunia",
     "fields": ["Interaction Design", "Illustration", "Exhibition Design"],
     "url": "https://www.behance.net/gallery/228967873/VR-INTERACTIVE-EXPERIENCE-Cryptofaunia",
     "covers": {
@@ -35,6 +37,7 @@
   {
     "id": 152245933,
     "name": "Jooxter",
+    "slug": "jooxter",
     "fields": ["Graphic Design", "Motion Graphics", "Branding"],
     "url": "https://www.behance.net/gallery/152245933/Jooxter",
     "covers": {

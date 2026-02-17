@@ -726,24 +726,15 @@ a {
 }
 
 /* Le gros chiffre 404 */
-/* Le gros chiffre 404 */
 .error-code {
   font-family: var(--font-main);
   font-size: 8rem;
   font-weight: 100;
   line-height: 1;
-  color: #fff; /* Fallback si le navigateur ne gère pas le clip */
+  color: #ffffff; /* Blanc pur */
   margin: 0;
   letter-spacing: -0.05em;
-  
-  /* L'effet de texte dégradé */
-  background: linear-gradient(180deg, #fff 0%, rgba(255, 255, 255, 0.2) 100%);
-  
-  /* C'est ici que tu avais l'alerte */
-  -webkit-background-clip: text; /* Pour Chrome/Safari */
-  background-clip: text;         /* <--- AJOUTE CETTE LIGNE (Standard) */
-  
-  -webkit-text-fill-color: transparent;
+  /* On enlève les propriétés de clip et de dégradé */
 }
 
 /* Le message */

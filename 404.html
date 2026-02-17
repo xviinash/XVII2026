@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Introuvable | XVIINASH</title>
+    
+    <link rel="stylesheet" href="/portfolio.css"> 
+</head>
+<body>
+
+    <main class="not-found-page">
+        <div class="not-found-content">
+            <h1 class="error-code">404</h1>
+            <p class="error-message">Exploration terminée. Cette page n'existe pas.</p>
+            
+            <a href="/" class="not-found-btn">
+                Retour à l'accueil
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Redirige après 8 secondes si l'utilisateur ne fait rien
+        setTimeout(() => {
+            window.location.href = "/";
+        }, 8000);
+    </script>
+</body>
+</html>

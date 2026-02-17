@@ -17,16 +17,13 @@ const App = () => {
   }, [location]);
 
   return (
-    <Routes>
-      {/* Page d'Accueil */}
-      <Route path="/" element={<Home />} />
-
-      {/* Page Projet */}
-      <Route path="/project/:id" element={<ProjectPage />} />
-
-      {/* Page 404 (Attrape tout le reste) */}
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+// Dans App.jsx
+<Routes>
+  <Route path="/" element={<Home />} />
+  {/* On garde :id, mais cette variable pourra contenir "jooxter" ou "152245933" */}
+  <Route path="/project/:id" element={<ProjectPage />} />
+  <Route path="*" element={<NotFound />} />
+</Routes>
   );
 };
 
