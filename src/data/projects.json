@@ -1,12 +1,14 @@
 [
-  {
+{
     "id": 244071965,
     "slug": "officine-generale",
-    "name": "Officine Générale — Motion & 3D",
+    "name": "Officine Générale",
     "fields": ["Motion Design", "3D Animation", "Graphic Design"],
     "url": "https://www.behance.net/gallery/244071965/Officine-Gnrale",
     "covers": {
-      "original": "https://mir-s3-cdn-cf.behance.net/projects/original/2e3801244071965.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png"
+      "404": "https://mir-s3-cdn-cf.behance.net/projects/404/841377244071965.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
+      "808": "https://mir-s3-cdn-cf.behance.net/projects/808/841377244071965.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png",
+      "original": "https://mir-s3-cdn-cf.behance.net/projects/original/841377244071965.Y3JvcCwxMzgwLDEwODAsMjcwLDA.png"
     }
   },
   {
